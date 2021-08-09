@@ -12,7 +12,6 @@ let idade
 console.log(typeof nome, idade)*/
 // O resultado foi undefined, pq não tem nenhum valor no nome ou idade para que possa ser reconhecido
 
-
 /*let SeuNome = prompt("Qual seu nome? ")
 let suaIdade = prompt("Qual sua idade? ")
 console.log(nome, idade)*/
