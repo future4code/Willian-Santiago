@@ -35,12 +35,12 @@
 
 // console.log(" Nascido no mês", mes, "do dia", dia, "as", horas, "horas")
 
-let inserirNumero1 = Number(prompt("Insira um numero "))
-let inserirNumero2 = Number(prompt("Insira um segundo numero "))
+// let inserirNumero1 = Number(prompt("Insira um numero "))
+// let inserirNumero2 = Number(prompt("Insira um segundo numero "))
 
-resultado = inserirNumero1 + inserirNumero2
+// resultado = inserirNumero1 + inserirNumero2
 
-console.log("O primeiro numero é maior que o segundo? ", inserirNumero1 > inserirNumero2)
-console.log("O primeiro numero é maior que o segundo? ", inserirNumero1 === inserirNumero2)
-console.log("O primeiro numero é maior que o segundo? ", inserirNumero1 !== inserirNumero2)
-console.log("O segundo numero é maior que o primeiro? ", inserirNumero1 !== inserirNumero2)
+// console.log("O primeiro numero é maior que o segundo? ", inserirNumero1 > inserirNumero2)
+// console.log("O primeiro numero é maior que o segundo? ", inserirNumero1 === inserirNumero2)
+// console.log("O primeiro numero é maior que o segundo? ", inserirNumero1 !== inserirNumero2)
+// console.log("O segundo numero é maior que o primeiro? ", inserirNumero1 !== inserirNumero2)
