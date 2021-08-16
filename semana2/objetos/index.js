@@ -49,4 +49,3 @@
 // umaFuncao.push(frutas[1])
 // umaFuncao.push(frutas[2])
 // console.log(carrinho)
-
