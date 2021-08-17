@@ -1,51 +1,64 @@
-// Exercicio 1
-// "Matheus Nachtergaele"
+// Exercicio de interpretação
+// O teste realizado é querendo saber se o numero digitado e dividido é um resultado Inteiro
+// Se for numero parent, passou se não, não passou
+// Numeros pares
 
-// "Virginia Cavendish"
+// Para saber se tem a fruta e o preço
+// preco = 2.25
+// Seria impresso o valor de pera com o de default
 
-// {canal: "Globo", horario: "14h"}
+// Comparando se um numero é maior que o outro
+// Seria igual e passaria
+// Não haveria erro se fosse o numero 10, pq o resultado seria 0
 
-// Exercicio 2
-// Juca
-// Juba
-// Jubo
 
-// A sintaxe copia o objeto e faz alteração
-
-// Exercicio 3
-// False
-// A função backender tá atribuida como falso e retornou esse valor
-// A altura não foi definida
-
-// const pessoa = {
-//     nome: "Teste",
-//     apelidos: ["Testando", "Testado", "Testarei"]
+// const idadeDoUsuario = (aIdade) =>{
+//     if (aIdade >= 18){
+//         console.log("Ele pode dirigir")
+//     } else {
+//         console.log("Não pode digirir")
+//     }
 // }
-// console.log(`Eu sou ${pessoa.nome}, mas pode me chamar de ${pessoa.apelidos[0]}, ${pessoa.apelidos[1]} ou ${pessoa.apelidos[2]}`)
+// const idade = Number(prompt("Qual sua idade? "))
+// idadeDoUsuario(idade)
 
-// const novaPessoa = {
-//     pessoaCitada: pessoa.nome,
-//     novosApelidos: ["Testado 1", "Testado 2", "Testado 3"],
-//     ...pessoa
+// const horarioDeTrabalho = (dia, tarde, noite) =>{
+//     if (horaDetrabalho === "M" ){
+//         console.log("Bom dia")
+//     } else if (horaDetrabalho === "V"){
+//         console.log("Boa tarde")
+//     } else if (horaDetrabalho === "N"){
+//         console.log("Boa noite")
+//     }
+
 // }
-// console.log(novaPessoa)
+// const horaDetrabalho = prompt("Digite  M (matutino) ou V (Vespertino) ou N (Noturno)")
+// horarioDeTrabalho(horaDetrabalho)
 
-// const pessoa = {
-//     nome: "Teste",
-//     idade: 50,
-//     profissao: "Programador"
+// let horarioTrabalho = (horaDetrabalho) => {
+// switch (horaDetrabalho) {
+//     case "M":
+//      console.log("Bom dia");
+//   break;
+//   case "V":
+//     console.log("Boa tarde");
+//     break
+//   case "N":
+//     console.log("Boa noite");
+//     break
+//     default:
+//         console.log("A resposta tem que ser M, V ou N")
+//         break;
 // }
-// let resultado = pessoa
-// console.log(pessoa.nome, pessoa.nome.length, pessoa.idade, pessoa.profissao, pessoa.profissao.length)
+// }
+// const seuHorarioDeTrabalho = prompt("Digite  M (matutino) ou V (Vespertino) ou N (Noturno)").toUpperCase()
+// horarioTrabalho(seuHorarioDeTrabalho)
 
-// const carrinho = []
-// const frutas = [
-//     {fruta: "Abacaxi", disponibilidade: true},
-//     {fruta: "Pera", disponibilidade: true},
-//     {fruta: "Maca", disponibilidade: true}
-// ]
-// umaFuncao = carrinho
-// umaFuncao.push(frutas[0])
-// umaFuncao.push(frutas[1])
-// umaFuncao.push(frutas[2])
-// console.log(carrinho)
+
+const genero = prompt("Qual o genero do filme? ").toUpperCase()
+const valor = Number(prompt("Qual o valor do ingresso? "))
+    if(genero === "ficcao" && valor <= 15){
+        console.log("Bom filme")
+    }else{
+        console.log("Escolha outro filme")
+    }
