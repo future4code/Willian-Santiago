@@ -1,0 +1,8 @@
+ˋˋˋfunction calculaPrecoTotal(quantidade) {
+  // Escreva seu código aqui 
+ let maca = 1.30 * quantidade
+  return maca 
+} 
+OBS: Não sei bem onde errei, pois com essa soma ele me retorna um valor maior, porem diz que só o resultado estava errado,
+mas o caso 1 e 2 estariam certo. Estou estudando novamente tudo de javascrip pois estou com algumas dificuldade.
+E algumas pessaos estão me ajudando nissoˋˋˋ
