@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.topo{
+    width: 1280px;
+
+}
+header{
+    padding: 2px 0;
+    background-color: #3DB2FF;
+    height: 60px;
+
+}
+.logo{
+    float: left;
+    position: relative;
+    padding-top: 8px;
+    color: white;
+}
+.logo h2{
+    margin-left: 20px;
+}
+div.navegacao{
+    float: right;
+}
+div.navegacao ul{
+    position: relative;
+    top: 15px;
+    right: 40px;
+}
+
+div.navegacao li{
+    padding: 0 10px;
+    display: inline;
+    color: white;
+}
+div.navegacao a{
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+}
+
+section{
+    width: 100%;
+    background-color: #FFEDDA;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+}
+.corpo h1{
+    text-align: center;
+    color: red;
+    padding-top: 20px;
+    font-size: 30px;
+}
+div.corpo p{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+}
+.background{
+    width: 1000px;
+    height: 400px;
+    margin-top: 10px;
+    background-repeat: no-repeat;
+    background-image: url('/imagens/fullstack.jpg');
+}
+div.imagem h2{
+    text-align: center;
+}
+div.imagem{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+main.galeria{
+    width: 100%;
+    height: 400px;
+    background-color: #FFB830;
+}
+
+.galeria h2{
+    text-align: center;
+    margin: 10px 0;
+}
+main.galeria ul{
+    margin-top: 10px;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+main.galeria p{
+    text-align: center;
+    font-size: 18px;
+    color: blue;
+    text-decoration: none;
+}
+
+footer{
+    width: 100%;
+    position: absolute;
+    height: 150px;
+    background-color: #FF2442;
+}
+footer h2{
+    text-align: center;
+    margin-top: 10px;
+}
+footer p{
+    margin: 5px 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+.segunda-pagina{
+    width: 100%;
+    background-color: #FFEDDA;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+}
+main.corpo-galeria{
+    display: flex;
+}
+
+.corpo-galeria h2{
+    text-align: center;
+    margin-top: 10px;
+}
+.corpo-galeria p{
+    text-align: center;
+    margin-top: 10px;
+}
+.corpo-geleria a{
+    justify-content: center;
+}
+div.background1{
+    width: 1000px;
+    height: 400px;
+    margin-top: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/imagens/jogo1.jpg');
+}
+
+
+main.galeria2{
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: #FFB830;
+}
+main.segundo-projeto{
+    width: 100%;
+    height: 600px;
+    background-color: #FFB830;  
+}
+.segundo-projeto > h1{
+    text-align: center;
+}
+.segundo-projeto p{
+    text-align: center;
+    font-size: 18px;
+}
+.segundo-projeto ul{
+    margin-left: 10px;
+    margin-top: 10px;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+
+}
+.segundo-projeto ul p{
+    font-size: 18px;
+    text-align: center;
+}
+main.meu-formulario{
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    background-color: #FFEDDA;;
+    justify-content: center;
+}
+.meu-formulario h2{
+    padding: 4px 0;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+form ul li{
+    font-size: 18px;
+    margin-top: 10px;
+}
+form [type=text]{
+    padding: 5px;
+    border: 2px solid #CCC;
+    font-size: 18px;
+   
+}
+form [type=submit]{
+    padding: 5px;
+    background-color: #CCC;
+    cursor: pointer;  
+}
+.social-midia{
+    width: 100%;
+    height: 280px;
+    background-color: #FFB830; 
+}
+.social-midia ul li{
+    margin-top: 60px;
+    font-size: 18px;
+}
