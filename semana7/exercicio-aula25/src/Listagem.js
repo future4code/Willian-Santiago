@@ -1,83 +1,76 @@
-import axios from "axios"
 import React from "react"
+import axios from "axios"
+import styled from "styled-components"
 
+const ListaDeUsuarios = styled.div`
+  border: 2px solid #CCC;
+  padding: 10px;
+  margin: 20px auto;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+
+  button{
+    background-color: red;
+  }
+`;
 
 const headers = {
-    headers: {
-        Authorization: "Willian-Turma-da-Maryam"
-    }
+  headers: {
+      Authorization: "Willian-Turma-da-Maryam"
+  }
 }
 
-      
-      export default class App extends React.Component {
-      
-         state = {
-          usuarios: [],
-          listName: "",
-          listEmail: ""
-        };
-      
-        componentDidMount() {
-          this.getAllUsers();
-        }
-      
-        componentDidMount() {
-          this.getAllUsers();
-        }
-      
-        handleListName = (e) => {
-          this.setState({ listName: e.target.value });
-      
-        };
-        handleListEmail = (e) => {
-          this.setState({ listEmail: e.target.value });
-        };
-        createUsers = () => {
-          const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-          const body = {
-             name: this.state.listName,
-             email: this.state.listEmail
-          }
-          
-          axios.post(url, body, headers)
-          .then((res) => {
-            this.setState({ listName: "" });
-            this.setState({ listEmail: "" });
-            this.getAllUsers();
-      
-          })
-          .catch((erro) => {
-            
-      
-          })
-      }
-      
-        getAllUsers= () => {
-          const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-          axios.get(url, headers)
-          .then((res) => {
-            console.log(res)
-            this.setState({ usuarios: res.data.result.list });
-      
-          })
-          .catch((erro) => {
-            console.log(erro)
-      
-          })
-        }
-   
+export default class Listagem extends React.Component {
 
-  render() {
-    
-    return (
-      
-      <div>
-          <h1>Teste</h1>
-      
-      </div>  
-    );
-   
+  state = {
+    usuarios: []
   }
 
+  componentDidMount () {
+        this.allUsers()
+      }
+
+  allUsers = () => {
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
+    axios.get(url, headers)
+    .then((res) => {
+      this.setState({usuarios: res.data})
+    })
+    .catch((erro) => {
+      alert("Aconteceu algum erro, tente novamente")
+
+    })
+  }
+
+  deleteUsuario = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+    
+    axios.delete(url, headers)
+    .then((res) => {
+      alert("Usuário deletado com sucesso")
+      this.allUsers()
+    })
+    .catch((erro) => {
+      alert("Ocorreu um erro, tente novamente")
+
+    })  
+  }
+
+  render() {
+
+    const listaMapeada = this.state.usuarios.map((usuario) => {
+        return <ListaDeUsuarios key={usuario.id}>{usuario.name}
+        <button onClick={() => this.deleteUsuario(usuario.id)}>x</button>
+        </ListaDeUsuarios>
+    })
+    return (
+      <div>
+        <button onClick={this.props.mudarPraCadastro}>Mudar pra cadastro</button>
+        <h2>Lista de usuários</h2>
+        {listaMapeada}
+      </div>
+    )
+  }
 }
 

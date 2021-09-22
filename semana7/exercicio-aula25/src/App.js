@@ -2,107 +2,67 @@ import logo from './logo.svg';
 import './App.css';
 import axios from "axios"
 import React from "react"
-import Listas from "./Listagem"
+import Listagem from "./Listagem"
+import TelaCadastro from './TelaCadastro';
+import styled from "styled-components"
 
-const headers = {
-  headers: {
-      Authorization: "Willian-Turma-da-Maryam"
+const EstiloPrimeiratela = styled.div`
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 auto;
+    align-items: center;
+    margin-top: 20px;
+    border: 2px solid #CCC;
+    width: 280px;
+    background-color: aqua;
+
+  input{
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    
   }
-}
+
+`;
+
 
 export default class App extends React.Component {
 
-   state = {
-    usuarios: [],
-    listName: "",
-    listEmail: ""
-  };
-
-  componentDidMount() {
-    this.getAllUsers();
+  state = {
+    tela1: "cadastro"
   }
+  escolherTela = () => {
+    switch (this.state.tela1){
+      case "cadastro":
+      return <TelaCadastro mudarPraListagem={this.mudarPraListagem}/>
 
-  componentDidMount() {
-    this.getAllUsers();
-  }
+      case "Lista":
+        return <Listagem mudarPraCadastro={this.mudarPraCadastro}/>
 
-  handleListName = (e) => {
-    this.setState({ listName: e.target.value });
+      default:
+        return <div>A página não foi encontrada</div>
 
-  };
-  handleListEmail = (e) => {
-    this.setState({ listEmail: e.target.value });
-  };
-  createUsers = () => {
-    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-    const body = {
-       name: this.state.listName,
-       email: this.state.listEmail
     }
-    
-    axios.post(url, body, headers)
-    .then((res) => {
-      this.setState({ listName: "" });
-      this.setState({ listEmail: "" });
-      this.getAllUsers();
-
-    })
-    .catch((erro) => {
-      
-
-    })
-}
-
-  getAllUsers= () => {
-    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-    axios.get(url, headers)
-    .then((res) => {
-      console.log(res)
-      this.setState({ usuarios: res.data.result.list });
-
-    })
-    .catch((erro) => {
-      console.log(erro)
-
-    })
-  }
- 
-
-
-  render() {
-
-    const usuariosComponents = this.state.usuarios.map((usuarioMapeado) => {
-      return <li>{usuarioMapeado.name} {usuarioMapeado.email}</li>;
-    });
-
-    
-    return (
-      
-      <div>
-     <label forHtml="name">Nome:</label>
-     <input
-          placeholder="Nome"
-          value={this.state.listName}
-          onChange={this.handleListName}
-        />
-      <br/>
-      <label forHtml="email">E-mail:</label>
-      <input
-          placeholder="E-mail"
-          value={this.state.listEmail}
-          onChange={this.handleListEmail}
-        />
-
-      <button onClick={this.createUsers}>Enviar</button>
-        {usuariosComponents}
-           
-
-      <Listas />
-      </div>  
-    );
-   
   }
 
+  mudarPraCadastro = () => {
+    this.setState({tela1: "cadastro"})
+  }
+
+  mudarPraListagem = () => {
+    this.setState({tela1: "Lista"})
+
+  }
+ render() {
+
+  return (
+    <EstiloPrimeiratela>
+      {this.escolherTela()}
+    </EstiloPrimeiratela>
+  )
+
+ }
 }
+
 
 
