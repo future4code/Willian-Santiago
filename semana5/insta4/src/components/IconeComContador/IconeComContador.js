@@ -8,8 +8,11 @@ const IconImage = styled.img`
 	margin-right: 5px;
 `
 
+semana6-aula21
 
 
+
+master
 export function IconeComContador(props) {
 	return <IconContainer>
 		<IconImage alt={'Icone'} src={props.icone} onClick={props.onClickIcone}/>
