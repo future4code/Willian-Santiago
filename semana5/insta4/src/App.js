@@ -12,6 +12,7 @@ const MainContainer = styled.div`
 `
 
 class App extends React.Component {
+semana5-aula20
 
   state = {
     postagens: [
@@ -42,9 +43,29 @@ class App extends React.Component {
       <MainContainer>
         {tela}
        </MainContainer>
+
+  render() {
+    return (
+      <MainContainer>
+        <Post
+          nomeUsuario={'paulinha'}
+          fotoUsuario={'https://picsum.photos/50/50'}
+          fotoPost={'https://picsum.photos/200/150'}
+        />
+        <Post
+          nomeUsuario={"Testando"}
+          fotoUsuario={'https://picsum.photos/50/51'}
+          fotoPost={'https://picsum.photos/200/151'}
+        />
+      </MainContainer>
+
+ master
     );
   }
 }
 
 export default App;
+ semana5-aula20
 
+
+ master
