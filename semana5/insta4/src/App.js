@@ -12,6 +12,38 @@ const MainContainer = styled.div`
 `
 
 class App extends React.Component {
+semana5-aula20
+
+  state = {
+    postagens: [
+      {
+        nomeUsuario: 'Teste',
+        fotoUsuario: 'https://picsum.photos/50/50',
+        fotoPost: 'https://picsum.photos/200/150'
+      },
+
+      {
+        nomeUsuario: 'Teste2',
+        fotoUsuario: 'https://picsum.photos/50/51',
+        fotoPost: 'https://picsum.photos/200/151'
+      }
+      
+    ]
+  }
+
+  render() {
+    const tela = this.state.postagens.map((postagem)=>{
+      return <Post
+      nomeUsuario={postagem.nomeUsuario}
+      fotoUsuario={postagem.fotoUsuario}
+      fotoPost={postagem.fotoPost}
+      />
+    })
+    return (
+      <MainContainer>
+        {tela}
+       </MainContainer>
+
   render() {
     return (
       <MainContainer>
@@ -27,8 +59,13 @@ class App extends React.Component {
         />
       </MainContainer>
 
+ master
     );
   }
 }
 
 export default App;
+ semana5-aula20
+
+
+ master
