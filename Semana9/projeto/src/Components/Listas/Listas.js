@@ -44,8 +44,6 @@ const Listas = (props) => {
 
       })
   }
-
-
    const listaMapeada = listaAprovados.map((lista) => {
         return <ListasStyled><img src={lista.photo}/> <h2>{lista.name}</h2></ListasStyled>
     })

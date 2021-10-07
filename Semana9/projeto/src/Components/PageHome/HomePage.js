@@ -45,8 +45,6 @@ const HomePage = (props) => {
 
     }
 
-    
-
     return (
       <HomeStyled>
           {!perfis ? <div>Acabaram os perfis</div> :
