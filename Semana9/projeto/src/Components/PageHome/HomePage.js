@@ -32,8 +32,8 @@ const HomePage = (props) => {
         const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/choose-person"
         const body = {
             
-                "id": "71gMbZs2txS9LDvGK5Ew",
-                "choice": true
+                id: perfis.id,
+                choice: true
             }
         
         axios.post(url, body).then((res) => {
@@ -44,7 +44,8 @@ const HomePage = (props) => {
         })
 
     }
- 
+
+    
 
     return (
       <HomeStyled>
@@ -54,8 +55,8 @@ const HomePage = (props) => {
         <h2>{perfis.name}, {perfis.age}</h2>
         <p>{perfis.bio}</p>
         <div>
-            <button onClick={() => escolherPerfil(true)}>X</button>
-            <button onClick={() => escolherPerfil (false)}>0</button>
+            <button onClick={() => escolherPerfil(false)}>❌</button>
+            <button onClick={() => escolherPerfil (true)}>🔴</button>
         </div>
         </Profile>
               }

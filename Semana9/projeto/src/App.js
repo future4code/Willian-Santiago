@@ -3,7 +3,6 @@ import HomePage from './Components/PageHome/HomePage';
 import Listas from './Components/Listas/Listas';
 import { useState } from 'react';
 import styled from "styled-components"
-import Aprovados from './Components/Listas/Aprovados';
 
 const App = (props) => {
 
@@ -24,7 +23,6 @@ const App = (props) => {
     <div>
       <button onClick={mudarTela} pagina={pagina}>Trocar de tela</button>
       {mudarPaginas()}
-      <Aprovados />
     </div>
   )
 }
