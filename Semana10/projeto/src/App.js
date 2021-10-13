@@ -1,34 +1,17 @@
 
 import { useState } from 'react';
 import './App.css';
-import Administrativa from './componentes/Home/Administrativa';
-import ListaViagens from './componentes/Home/ListaViagens';
+import {Router} from "./componentes/Route/Router"
+import { EstiloGlobal } from './componentes/Home/styled';
+
 
 function App() {
 
-  const [pagina, setPagina] = useState("")
-
-  const paginasEscolha = () => {
-    switch (pagina) {
-      case "1":
-        return <ListaViagens />
-      case "2":
-        return <Administrativa />
-
-      default:
-        break;
-    }
-  }
-  const mudarPaginas = (nomeTela) => {
-    setPagina(nomeTela)
-  }
+  
   return (
-    <div className="App">
-      <h1>Teste</h1>
-      <button onClick={() => mudarPaginas("1")}>Ver viagens</button>
-      <button onClick={() => mudarPaginas("2")}>Área administrativa</button>
-      {paginasEscolha()}
-    </div>
+    <EstiloGlobal>
+    <Router />
+    </EstiloGlobal>
   );
 }
 
