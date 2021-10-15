@@ -1,17 +1,12 @@
-
-import React, {useState, useEffect} from "react"
+import react from "react";
 import axios from "axios"
 
+const listaAprovarCandidatoViagem = () => {
 
-const TripDetailsPage = () => {
-
-    
-    return (
+    return(
         <div>
-            <button>Logout</button>
-            <h1>Logout</h1>
-
+            <h1>Teste</h1>
         </div>
     )
 }
-export default TripDetailsPage
+export default listaAprovarCandidatoViagem

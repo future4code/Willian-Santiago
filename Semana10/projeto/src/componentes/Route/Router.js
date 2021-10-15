@@ -7,9 +7,9 @@ import ListTripsPages from "../Home/ListTripsPages"
 import ApplicationFormPage from "../Home/ApplicationFormPage"
 import Sobre from "../Home/Sobre"
 import LoginPage from "../Home/LoginPage"
-import Logout from "../Home/Logout"
 import AdmHomePage from '../Home/AdmHomePage';
 import CreateTripsPage from '../Home/CreateTripPage';
+import TripDetailsPage from '../Home/TripDetailsPage';
 
 
 export const Router = () => {
@@ -27,9 +27,14 @@ export const Router = () => {
     <AdmHomePage />
     </Route>
 
+    <Router exact path ={"/detalhes"}>
+      <TripDetailsPage />
+    </Router>
+
     <Route exact path={"/lista"}>
     <ListTripsPages />
     </Route>
+
 
     <Route exact path={"/formulario"}>
       <ApplicationFormPage />
@@ -45,11 +50,6 @@ export const Router = () => {
 
     <Route exact path={"/sobre"}>
       <Sobre />
-    </Route>
-
-
-    <Route exact path={"/logout"}>
-      <Logout />
     </Route>
   
     </Switch>

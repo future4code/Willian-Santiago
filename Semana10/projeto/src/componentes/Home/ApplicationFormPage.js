@@ -1,42 +1,41 @@
 
 import React, {useState, useEffect} from "react"
 import axios from "axios"
+import useForm from "../Hooks/hooks"
 import { useHistory } from "react-router"
 import { MenuBotoes, Formulario } from "./styled"
 
 
 
+
 const ApplicationFormPage = () => {
+    
+    const {form, onChange, cleanFields} = useForm({
+        name: "",
+        age: "",
+        applicationText: "",
+        profession: "",
+        trips: ""
+    })
 
     const [trips, setTrips] = useState([])
-    const [name, setNome] = useState("")
-    const [age, setIdade] = useState("")
-    const [applicationText, setTexto] = useState("")
-    const [profession, setProfissao] = useState("")
 
-    const handleNome = (e) => {
-        setNome(e.target.value)
+    const formularioCadastro = (e) => {
+        e.preventDefault()
+        cleanFields()
+        formularioViagens()
     }
-    const handleIdade = (e) => {
-        setIdade(e.target.value)
-    }
-    const handleTexto = (e) => {
-        setTexto(e.target.value)
-    }
-    const handleProfissao = (e) => {
-        setProfissao(e.target.value)
-    }
-    const onClickButton = () => {
-        requerimentos(name)
-    }
+
+
+
 
     const history = useHistory()
     const voltarHome = () => {
         history.push("/")
     }
-    const enviarFormulario = () => {
-        history.push("")
-    }
+    // const enviarFormulario = () => {
+    //     history.push("")
+    // }
     
     
         useEffect (() => {
@@ -53,55 +52,97 @@ const ApplicationFormPage = () => {
         
           }, [])
 
-          const requerimentos = {
-            
-                name: trips.name,
-                age: trips.age,
-                applicationText: trips.applicationText,
-                profession: trips.profession,
-                "country": "Brasil"
-            
-          }
-
-          axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/:id/apply`)
-          .then((res) => {
-
-          }).catch((erro) => {
-
+          const formularioViagens = () =>{
+            const body ={
+              name: form.name,
+              age: form.age,
+              profession: form.profession,
+              country: form.country,
+              applicationText: form.applicationText,
+            } 
+      
+          axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips/${form.trip}/apply`, body)
+              
+          .then((res) =>{
+            console.log("sucesso")
           })
+          .catch((err) =>{
+              console.log(err)
+          })
+      
+        };
+
 
          const listaFormularioMapeada = trips.map((trip) => {
             return  <option>{trip.name}</option>
             
                    
           })
-          
 
     return (
-        
         <div>
-
 
             <MenuBotoes>
            
-            
-            <button onClick={voltarHome}>Voltar</button>
-            <button onClick={onClickButton}>Enviar</button>
-            </MenuBotoes>
-            <h1>Formulário de inscrição</h1>
+           <button onClick={voltarHome}>Voltar</button>
+
+            <Formulario onSubmit={formularioCadastro}>
+            <h1>Formulário</h1>
             <select>{listaFormularioMapeada}</select>
+
+            <input name={"name"} 
+            type={"name"} 
+            value={form.name} 
+            onChange={onChange} 
+            placeholder="Nome" 
+            required 
+            />
+
+            <input name={"age"} 
+            type={"number"} 
+            value={form.age} 
+            onChange={onChange} 
+            placeholder="Idade" 
+            required
+            />
+
+            <input name={"applicationText"} 
+            value={form.applicationText} 
+            onChange={onChange} 
+            placeholder="Texto" 
+            required 
+            pattern={"^.{10,}"}
+            title={"O texto deve ter no minimo 10 letras"}/>
+
+            <input name={"profession"} 
+            value={form.profession} 
+            onChange={onChange} 
+            placeholder="Profissão" 
+            required/>
+
+            <label for="country">País que você vive</label>
+                <p
+                >
+                <select
+                name={"country"}
+                value={form.country}
+                onChange={onChange}
+                type="select"
+                required
+                >
+                <option value="Choose">Escolha o país</option> 
+                <option value="Brasil">Brasil</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="França">França</option>
+                <option value="Mexico">Mexico</option>
+                <option value="China">China</option>
+                </select></p>
+                
+
+            <button>Enviar</button>
             
-            <Formulario>
-                <input value={name} onChange={handleNome} type="text" name="name" placeholder="Nome"/>
-
-                <input value={age} onChange={handleIdade} type="text" name="number" placeholder="Idade"/>
-
-                <input value={applicationText} onChange={handleTexto} type="text" name="name" placeholder="Texto para a candidatura"/>
-
-                <input value={profession} onChange={handleProfissao} type="text" name="name" placeholder="Profissão"/>
             </Formulario>
-            
-            
+            </MenuBotoes>
 
         </div>
     )

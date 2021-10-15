@@ -1,52 +1,66 @@
-
 import React, {useState, useEffect} from "react"
 import axios from "axios"
+import useForm from "../Hooks/hooks"
 import { useHistory } from "react-router"
 import { MenuBotoes } from "./styled"
 
+const AdmHomePage = () => {
 
-const LoginPage = () => {
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
+
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+    const handleSenha = (e) => {
+        setSenha(e.target.value)
+    }
+    const onSubmitLogin = () => {
+        console.log(email, senha)
+    }
+
+
     const history = useHistory()
     const voltaHome = () => {
         history.push("/")
     }
-    const criarViagens = () => {
-        history.push("/criar")
+    const efetuarLogin = () => {
+        history.push("/login")
     }
-    const logoutConta = () => {
-        history.push("/adm")
-    }
-
-    // const [list, setList] = useState()
-    useEffect(() => {
-        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trip/8BKOBHfkBsawzxnk0uSY"
-        const headers = {
-            auth: 
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDM4Njh9.mmOrfGKlXpE3pIDUZfS3xV5ZwttOI2Exmoci9Sdsxjs"
+    const loginAdm = () => {
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/Willian-TurmaMaryam/login"
+        console.log(email, senha)
+        const body = {
+            
+                email: email,
+                password: senha
         }
-    
-        axios.get(url, headers)
+        axios.post(url, body)
         .then((res) => {
-            console.log(res.data)
+            console.log("ok", res.data.token)
+            localStorage.setItem("token", res.data.token)
+            history.push("/adm")
 
         }).catch((erro) => {
-            console.log("erro", erro.data)
+            console.log("errado", erro.response)
 
         })
-    }, [])
-    
+}
 
     return (
         <div>
+
+            
             <MenuBotoes>
             <button onClick={voltaHome}>Voltar</button>
-            <button onClick={criarViagens}>Criar viagens</button>
-            <button onClick={logoutConta}>Logout</button>
+            <button onClick={loginAdm}>Login</button>
             </MenuBotoes>
-            <h1>Painel administrativo</h1>
-            
+            <input value={email} onChange={handleEmail} placeholder="Email"/>
+            <input value={senha} onChange={handleSenha} placeholder="Senha"/>
+            <h1>Área adm</h1>
 
         </div>
     )
 }
-export default LoginPage
+export default AdmHomePage

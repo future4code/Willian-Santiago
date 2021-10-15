@@ -21,7 +21,7 @@ const ListTripsPages = () => {
 
 
     useEffect (() => {
-        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips"
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/Willian-TurmaMaryam/trips"
         axios.get (url)
         .then((res) =>{
           setTrips(res.data.trips)

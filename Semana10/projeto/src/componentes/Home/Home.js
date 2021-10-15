@@ -11,7 +11,7 @@ const HomePage = () => {
         history.push("/lista")
     }
     const paginaAdm = () => {
-        history.push("/adm")
+        history.push("/login")
     }
     return (
         <div>
