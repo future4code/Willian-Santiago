@@ -7,8 +7,22 @@ import { goToRecipesList, goToLogin } from "../../routes/cordinator"
 
 import { useHistory } from "react-router-dom"
 
-const Header = () => {
-    const history = useHistory()
+const Header = ({rightButtonText, setRightButtonText}) => {
+  const token = localStorage.getItem("token")
+  const history = useHistory()
+    
+    const logout = () => {
+      localStorage.removeItem("token")
+    }
+    const rightButtonAction = () => {
+      if(token){
+        logout()
+        setRightButtonText("Login")
+        goToLogin(history)
+      }else{
+        goToLogin(history)
+      }
+    }
   return (
     
       <AppBar position="static">
@@ -19,7 +33,7 @@ const Header = () => {
             <Button onClick={()=> goToRecipesList(history)} color="inherit">Inicio</Button>
           </Typography>
 
-        <Button onClick={() => goToLogin(history)} color="inherit">Login</Button>
+        <Button onClick={rightButtonAction} color="inherit">{rightButtonText}</Button>
         </StyledToolbarra>
       </AppBar>
     

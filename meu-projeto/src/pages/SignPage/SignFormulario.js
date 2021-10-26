@@ -6,7 +6,7 @@ import { signUp } from "../../services/user"
 
 
 
-const SignFormulario = () => {
+const SignFormulario = ({setRightButtonText}) => {
 
     const history = useHistory()
 
@@ -20,7 +20,8 @@ const SignFormulario = () => {
 
     const onSubmitForm = (e) => {
         e.preventDefault()
-        signUp(form,  clear, history)
+        signUp(form,  clear, history, setRightButtonText)
+        console.log(form)
     }
     return(
         

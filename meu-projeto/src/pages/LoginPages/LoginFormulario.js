@@ -7,7 +7,7 @@ import { login } from "../../services/user"
 
 
 
-const LoginFormulario = () => {
+const LoginFormulario = ({setRightButtonText}) => {
 
     const history = useHistory()
 
@@ -21,7 +21,7 @@ const LoginFormulario = () => {
 
     const onSubmitForm = (e) => {
         e.preventDefault()
-        login(form, clear, history)
+        login(form, clear, history, setRightButtonText)
     }
     
     return(

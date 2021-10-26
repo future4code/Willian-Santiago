@@ -5,14 +5,14 @@ import LoginFormulario from "./LoginFormulario"
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 
 
-const LoginPage = () => {
+const LoginPage = ({setRightButtonText}) => {
     useUnprotectedPage()
     
 
     return(
         
         <div>
-            <LoginFormulario />
+            <LoginFormulario setRightButtonText={setRightButtonText}/>
             
         </div>
             

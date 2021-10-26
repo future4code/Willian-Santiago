@@ -2,7 +2,7 @@ import React from "react"
 import SignFormulario from "./SignFormulario"
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 
-const SignPage = () => {
+const SignPage = ({setRightButtonText}) => {
     useUnprotectedPage()
     
 
@@ -12,7 +12,7 @@ const SignPage = () => {
     return(
         
         <div>
-            <SignFormulario />
+            <SignFormulario setRightButtonText={setRightButtonText}/>
             
         </div>
             
