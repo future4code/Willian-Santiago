@@ -10,7 +10,7 @@ export const goToRecipesList = (history) => {
 }
 
 export const goToAddRecipePage = (history) => {
-    history.push("/adicionar-receita")
+    history.push("/adiciona")
 }
 
 export const goToRecipeDetail = (history) => {

@@ -16,7 +16,7 @@ const Header = ({rightButtonText, setRightButtonText}) => {
     }
     const rightButtonAction = () => {
       if(token){
-        logout()
+        logout()  
         setRightButtonText("Login")
         goToLogin(history)
       }else{

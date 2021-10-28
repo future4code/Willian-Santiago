@@ -1,6 +1,6 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
-import AddRecipsPage from "../pages/AddRecipesPage/AddRecipesPage"
+import AddRecipePage from "../pages/AddRecipesPage/AddRecipesPage"
 import LoginPages from "../pages/LoginPages/LoginPage"
 import RecipeDetailPage from "../pages/RecipeDetailPage/RecipeDetailPage"
 import RecipesListPage from "../pages/RecipesListPage/RecipesListPage"
@@ -23,8 +23,8 @@ const Router = ({setRightButtonText}) => {
             <RecipesListPage/>
             </Route>
 
-            <Route exact path ="/adicionar-receita" >
-            <AddRecipsPage />
+            <Route exact path ="/adiciona" >
+            <AddRecipePage />
             </Route>
 
             <Route exact path ="/detalhe/:id">

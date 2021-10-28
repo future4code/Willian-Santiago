@@ -6,8 +6,6 @@ export const StyledPost = styled.div`
     margin: 10px;
     padding: 10px;
     flex-direction: column;
-    h2{
-        /* text-align: center;
-        display: inline; */
-    }
+
+
 `;

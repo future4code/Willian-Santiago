@@ -5,20 +5,20 @@ import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from "../../constants/url"
 import axios from "axios"
 import { StyledPost } from "./styled"
+import { goToAddRecipePage } from "../../routes/cordinator"
+import { useHistory } from "react-router"
 
 
 const RecipesListPage = () => {
     useProtectedPage()
 
-    // const todosConteudos = useRequestData([], `${BASE_URL}/posts`)
-    // console.log(todosConteudos)
-
-    // const conteudos = todosConteudos.map((conteudo) => {
-    //     return <p>
-    //         {conteudo.title}</p>
-    // })
 
         const [data, setData] = useState([])
+       
+
+        const history = useHistory()
+
+
         
         useEffect(() => {
             axios.get(`${BASE_URL}/posts`, {
@@ -35,10 +35,18 @@ const RecipesListPage = () => {
             })
         }, [])
 
+
+
+
+
         const conteudos = data.map((conteudo) => {
-            return <StyledPost>
-                <p>{conteudo.username} - Postado em {conteudo.createdAt}</p> <h2>{conteudo.title}</h2>
+            return <StyledPost key={conteudo.id}>
+              <div> <h5 className="space">{conteudo.username} - Postado em {conteudo.createdAt} Votos: {conteudo.voteSum}</h5> </div>
+
+                
+                <h2>{conteudo.title}</h2>
                 <p>{conteudo.body}</p>
+                
             </StyledPost>
         })
 
@@ -46,8 +54,9 @@ const RecipesListPage = () => {
         
         <div>recipesListPage
 
-        <Button variante ="contained" color="primary">
-            Primaria
+        <Button variante ="contained" color="primary"
+        onClick={() => goToAddRecipePage (history)}>
+            Adicionar novo post
             </Button>
             {conteudos}
         </div>
