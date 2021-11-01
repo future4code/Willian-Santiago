@@ -36,7 +36,7 @@ const Listas = (props) => {
       const body = {
         message: "Success"
       }
-      
+
       axios.put(url, body)
       .then((escolherPerfil) => {
           setListasAprovados(escolherPerfil().data.matches)
@@ -50,6 +50,7 @@ const Listas = (props) => {
         return <ListasStyled><img src={lista.photo}/> <h2>{lista.name}</h2></ListasStyled>
     })
 
+
     return (
      <ContainerList >
       <ListasStyled>
@@ -61,7 +62,7 @@ const Listas = (props) => {
         </ListasContainer>
 
       </ListasStyled>
-      </ContainerList>   
+
     )
   }
   export default Listas
