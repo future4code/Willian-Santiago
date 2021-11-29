@@ -18,7 +18,7 @@ const App = (props) => {
   const mudarTela = () => {
     setPagina(!pagina)
   };
-  
+
   return (
     <div>
       <button onClick={mudarTela} pagina={pagina}>Trocar de tela</button>
