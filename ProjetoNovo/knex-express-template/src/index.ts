@@ -44,6 +44,65 @@ app.get("/users", async (req, res) => {
 })
 
 
+app.post("/products", async (req, res) => {
+
+  try{
+      const {name, price, image_url} = req.body
+     
+    await connection.raw(`
+      INSERT INTO ecomerce_products
+      (id, name, price, image_url)
+      VALUES(
+          "${Date.now().toString()}",
+          "${req.body.name}",
+          "${req.body.price}",
+          "${req.body.image_url}"
+      )
+      `);
+      res.status(201).send("Produto cadastrado com sucesso")
+
+  } catch(error){
+      
+      res.status(500).send("Ocorreu um erro inesperado")
+  }
+})
+
+app.get("/products", async (req, res) => {
+  try{
+
+    const resultado = await connection("ecomerce_products")
+
+    res.status(200).send(resultado)
+  } catch(erro){
+    res.status(500).send("Ocorreu algum erro inesperado")
+  }
+})
+
+app.post("/purchase", async (req, res) => {
+
+  try{
+      const {user_id, product_id, quantity} = req.body
+      console.log(req.body)
+     
+    await connection.raw(`
+      INSERT INTO ecomerce_purchase
+      (id, user_id, product_id, quantity)
+      VALUES(
+          "${Date.now().toString()}",
+          "${req.body.user_id}",
+          "${req.body.product_id}",
+          "${req.body.quantity}"
+      )
+      `);
+      res.status(201).send("Produto cadastrado com sucesso")
+
+  } catch(error){
+    console.log(error)
+      
+      res.status(500).send("Ocorreu um erro inesperado")
+  }
+})
+
 // app.get("/user", async (req, res) => {
 //     try {
 //         const name = req.query.name || "%"
