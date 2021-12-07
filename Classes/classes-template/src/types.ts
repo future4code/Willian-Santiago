@@ -1,34 +1,61 @@
-export enum GENDER {
-   MALE = "MALE",
-   FEMALE = "FEMALE",
-   OTHER = "OTHER"
-}
 
-export type character = {
-   name: string,
-   gender: GENDER,
-   id?: number,
-   description?: string
-}
 
-// Os contrutores são usados para suporta a inicialização de valores internos da classe na declaração de objetos
-
-class UserAccount {
-   private cpf: string;
+class User {
+   private id: string;
+   private email: string;
    private name: string;
-   private age: number;
-   private balance: number = 0;
-   private transactions: Transaction[] = [];
+   private password: string;
  
    constructor(
-      cpf: string,
-      name: string,
-      age: number,
+       id: string,
+       email: string,
+       name: string,
+       password: string
+    ){
+       console.log("Chamando o construtor da classe User")
+       this.id = id
+       this.email = email
+       this.name = name 
+       this.password = password
+    }
+ 
+    public getId(): string {
+       return this.id
+    }
+ 
+    public getEmail(): string {
+       return this.email
+    }
+ 
+    public getName(): string {
+       return this.name
+    }
+ }
+
+ const users = {
+    id: "1",
+    name: "Teste",
+    email: "teste@gmail.com"
+ }
+ 
+
+ class Customer extends User {
+   public purchaseTotal: number = 0;
+   private creditCard: string;
+ 
+   constructor(
+     id: string,
+     email: string,
+     name: string,
+     password: string,
+     creditCard: string
    ) {
-      console.log("Chamando o construtor da classe UserAccount")
-      this.cpf = cpf;
-      this.name = name;
-      this.age = age;
+     super(id, email, name, password);
+     console.log("Chamando o construtor da classe Customer");
+     this.creditCard = creditCard;
    }
  
+   public getCreditCard(): string {
+     return this.creditCard;
+   }
  }
