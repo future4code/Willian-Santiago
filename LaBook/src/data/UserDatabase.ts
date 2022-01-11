@@ -1,4 +1,4 @@
-import { AuthenticatorData, User } from "../model/User";
+import { AuthenticatorData, toUserModel, User } from "../model/User";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase{
@@ -7,8 +7,35 @@ export class UserDatabase extends BaseDatabase{
         const result = await this.connection("labook_users").where({id})
         return result[0]
     }
-    createUser = async (user: User): Promise <User | undefined> => {
-        const  newUser = await this.connection("labook_users").where({user})
-        return newUser[0]
+    async insertUser (user: User) {
+        try {
+
+        await this.connection("labook_users")
+        .insert({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            password: user.password
+        })
+    } catch (error: any) {
+        throw new Error(error.message)
+    }
+
+}
+
+async getUserByEmail(email: string): Promise <User>{
+    try{
+        const result: any = await this.connection("labook_users")
+        .select("*")
+        .where({email})
+
+        const user = toUserModel(result[0])
+
+        return user
+
+    } catch (error: any) {
+        throw new Error(error.message)
     }
 }
+}
+    

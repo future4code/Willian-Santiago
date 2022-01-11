@@ -11,3 +11,5 @@ const userController = new UserControler()
 
 app.get("/posts/:id", postController.getPostById)
 app.get("/users/:id", userController.getUserById)
+app.post("/signup", userController.signup)
+app.post("/login", userController.login)
