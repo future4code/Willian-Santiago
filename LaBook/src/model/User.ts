@@ -34,6 +34,8 @@ export function toUserModel(obj: any): User {
         id: obj.id,
         email: obj.email,
         name: obj.name,
-        password: obj.passsword
+        password: obj.password
     }
 }
+
+export default User

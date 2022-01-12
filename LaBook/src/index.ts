@@ -9,7 +9,9 @@ app.get("/", (req, res) =>{
 const postController = new PostControler()
 const userController = new UserControler()
 
-app.get("/posts/:id", postController.getPostById)
-app.get("/users/:id", userController.getUserById)
 app.post("/signup", userController.signup)
 app.post("/login", userController.login)
+app.get("/users/:id", userController.getUserById)
+
+app.get("/posts/:id", postController.getPostById)
+app.post("/post", postController.createPost)

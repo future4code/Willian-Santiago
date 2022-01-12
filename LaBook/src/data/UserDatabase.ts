@@ -37,5 +37,7 @@ async getUserByEmail(email: string): Promise <User>{
         throw new Error(error.message)
     }
 }
+
+
 }
     

@@ -26,8 +26,8 @@ export class UserControler{
 
    async signup(req: Request, res: Response) {
     try{
-        let message = "Sucess"
-        const {name, email, password} = req.body
+        let message = "Success"
+
 
         const input: SignUpInput = {
             name: req.body.name,
@@ -36,7 +36,7 @@ export class UserControler{
         }
         console.log(input)
 
-        const userBusiness = new UserBusiness
+        const userBusiness = new UserBusiness()
         const token = await userBusiness.signup(input)
         
         res.status(201).send({message, token})

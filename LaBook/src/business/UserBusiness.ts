@@ -13,10 +13,10 @@ export class UserBusiness{
 
         return user
     }
-    signup = async(input: SignUpInput): Promise <string> => {
+   async signup (input: SignUpInput): Promise <string> {
     try{
 
-        if (!input.name || input.email || input.password) {
+        if (!input.name || !input.email || !input.password) {
 
             throw new Error("name, email ou password com parametros invalidos")
         }
@@ -66,9 +66,9 @@ export class UserBusiness{
         }
 
         const hashManager = new HashManager()
-        const passwordISCorrect: boolean = await compare(input.password, user.password)
+        const passwordIsCorrect: boolean = await hashManager.compareHash(input.password, user.password)
     
-        if (passwordISCorrect) {
+        if (!passwordIsCorrect) {
             throw new Error("Credenciais invalidas")
         }
 
@@ -84,4 +84,5 @@ export class UserBusiness{
         throw new Error(error.message)
     }
 }
+
 }

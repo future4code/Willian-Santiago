@@ -1,7 +1,8 @@
 
 import { config } from "dotenv"
 import { JwtPayload, sign, verify } from "jsonwebtoken"
-import { AuthenticatorData } from "../model/User"
+import { AuthenticatorData } from "../../src/model/User"
+
 
 config()
 

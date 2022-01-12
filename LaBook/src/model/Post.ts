@@ -8,6 +8,13 @@ export interface post {
     id: string,
     photo: string,
     description: string,
-    creationDate: Date,
+    dateCreate: Date,
     type: POST_TYPES
+}
+
+export interface createPostInput {
+    photo: string,
+    description: string,
+    type: POST_TYPES,
+    token: string
 }
